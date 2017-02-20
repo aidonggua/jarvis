@@ -14,9 +14,9 @@ public class DateUtils {
     //1分 = 60秒
     public static final long MINUTE = 60 * SECOND;
     //1小时 = 60分
-    public static final long HOUR = 60 * MINUTE;
+    public static final long HOUR   = 60 * MINUTE;
     //1天 = 24小时
-    public static final long DAY = 24 * HOUR;
+    public static final long DAY    = 24 * HOUR;
 
     /**
      * 加上 n 天后的时间
@@ -39,7 +39,6 @@ public class DateUtils {
         return new Date(date.getTime() + day * DAY);
     }
 
-
     /**
      * 获取日期的星期字符串
      *
@@ -50,7 +49,6 @@ public class DateUtils {
     public static String getDateEnWeekString(Date date) {
         return getEnWeekString(getDateWeek(date));
     }
-
 
     /**
      * 获取指定日期的星期数
@@ -113,6 +111,62 @@ public class DateUtils {
                 break;
         }
         return weekStr;
+    }
+
+    /**
+     * the number indicates the week
+     *
+     * @param week the day of the week(abbreviation)
+     * @return the day of the week(number)
+     * @author yehao
+     * @date 17/2/20 上午11:48
+     */
+    public static int getWeekNum(String week) {
+        if ("mon".equals(week)) {
+            return 1;
+        } else if ("tue".equals(week)) {
+            return 2;
+        } else if ("wed".equals(week)) {
+            return 3;
+        } else if ("thu".equals(week)) {
+            return 4;
+        } else if ("fri".equals(week)) {
+            return 5;
+        } else if ("sat".equals(week)) {
+            return 6;
+        } else if ("sun".equals(week)) {
+            return 7;
+        } else {
+            return 0;
+        }
+    }
+
+    /**
+     * the number(char) indicates the week
+     *
+     * @param week the day of the week(abbreviation)
+     * @return the day of the week(char)
+     * @author yehao
+     * @date 17/2/20 上午11:48
+     */
+    public static char getWeekChar(String week) {
+        if ("mon".equals(week)) {
+            return '1';
+        } else if ("tue".equals(week)) {
+            return '2';
+        } else if ("wed".equals(week)) {
+            return '3';
+        } else if ("thu".equals(week)) {
+            return '4';
+        } else if ("fri".equals(week)) {
+            return '5';
+        } else if ("sat".equals(week)) {
+            return '6';
+        } else if ("sun".equals(week)) {
+            return '7';
+        } else {
+            return '0';
+        }
     }
 
     /**
