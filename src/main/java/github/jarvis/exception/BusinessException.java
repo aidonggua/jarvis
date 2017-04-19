@@ -4,68 +4,68 @@ import github.jarvis.str.MessageFormatter;
 
 /**
  * Created by yehao on 16/8/30.
- * 参数为空异常
- * 检查参数是否为空时可以使用此异常
+ * 业务错误异常
+ * 业务流程出错时,可以使用此异常
  */
-public class NullParamException extends CustomRuntimeException {
+public class BusinessException extends CustomRuntimeException {
 
-    public static final  String DEFAULT_MSG      = "参数为空!";
-    private static final long   serialVersionUID = -7539361859316387092L;
+    public static final  String DEFAULT_MSG      = "业务错误!";
+    private static final long   serialVersionUID = 7245411649562897686L;
 
     /**
-     * create a default null param exception
+     * create a default business exception
      *
      * @author yehao
      */
-    public NullParamException() {
+    public BusinessException() {
         super(DEFAULT_MSG);
     }
 
     /**
-     * by specified a message to create a null param exception
+     * by specified a message to create a business exception
      *
      * @param msg exception message
      * @author yehao
      */
-    public NullParamException(String msg) {
+    public BusinessException(String msg) {
         super(msg);
     }
 
     /**
-     * create a null param exception with formatted message
+     * create a business exception with formatted message
      *
      * @param msg    exception message
      * @param params formatted object
      * @author yehao
      * @date 17/4/19 下午4:51
      */
-    public NullParamException(String msg, Object... params) {
+    public BusinessException(String msg, Object... params) {
         this(MessageFormatter.format(msg, params));
     }
 
     /**
-     * by specified a code to create a null param exception
+     * by specified a code to create a business exception
      *
      * @param code exception code
      * @author yehao
      */
-    public NullParamException(Integer code) {
+    public BusinessException(Integer code) {
         super(code);
     }
 
     /**
-     * by specified a message and code to create a null param exception
+     * by specified a message and code to create a business exception
      *
      * @param msg  exception message
      * @param code exception code
      * @author yehao
      */
-    public NullParamException(String msg, Integer code) {
+    public BusinessException(String msg, Integer code) {
         super(msg, code);
     }
 
     /**
-     * create a null param exception with formatted message
+     * create a business exception with formatted message
      *
      * @param msg    exception message
      * @param params formatted object
@@ -73,7 +73,7 @@ public class NullParamException extends CustomRuntimeException {
      * @author yehao
      * @date 17/4/19 下午4:51
      */
-    public NullParamException(String msg, Integer code, Object... params) {
+    public BusinessException(String msg, Integer code, Object... params) {
         this(MessageFormatter.format(msg, params), code);
     }
 }

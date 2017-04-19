@@ -7,7 +7,7 @@ package github.jarvis.exception;
  */
 public class InsertFailedException extends CustomRuntimeException {
 
-    public static final  String DEFAULT_MSG      = "没有记录被插入!";
+    public static final  String DEFAULT_MSG      = "记录插入失败!";
     private static final long   serialVersionUID = 1038166018030531768L;
 
     /**

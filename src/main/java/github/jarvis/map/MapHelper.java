@@ -33,28 +33,44 @@ public class MapHelper extends HashMap {
      * 获取Byte返回值
      */
     public Byte getByte(String key) {
-        return Byte.valueOf(getString(key));
+        String value = getString(key);
+        if (value == null) {
+            return null;
+        }
+        return Byte.valueOf(getString(value));
     }
 
     /**
      * 获取Integer返回值
      */
     public Integer getInteger(String key) {
-        return Integer.valueOf(getString(key));
+        String value = getString(key);
+        if (value == null) {
+            return null;
+        }
+        return Integer.valueOf(value);
     }
 
     /**
      * 获取Long返回值
      */
     public Long getLong(String key) {
-        return Long.valueOf(getString(key));
+        String value = getString(key);
+        if (value == null) {
+            return null;
+        }
+        return Long.valueOf(getString(value));
     }
 
     /**
      * 获取Double返回值
      */
     public Double getDouble(String key) {
-        return Double.valueOf(getString(key));
+        String value = getString(key);
+        if (value == null) {
+            return null;
+        }
+        return Double.valueOf(getString(value));
     }
 
     /**

@@ -45,7 +45,6 @@ public class StringUtils {
      * </pre>
      */
     public static boolean isBlank(String str) {
-        /*这个是其他地方的写法
         int strLen;
         if (null == str || (strLen = str.length()) == 0) {
             return true;
@@ -56,11 +55,6 @@ public class StringUtils {
             }
         }
         return true;
-        */
-
-        //自己想的写法
-        String s = str.trim();
-        return isEmpty(s);
     }
 
     /**
@@ -78,9 +72,8 @@ public class StringUtils {
         }
 
         StringBuffer sb = new StringBuffer();
-        char ch = 0;
         for (int i = 0; i < strLen; i++) {
-            ch = str.charAt(i);
+            char ch = str.charAt(i);
             //大写换小写，小写换大写
             if (Character.isLowerCase(ch)) {
                 ch = Character.toUpperCase(ch);
