@@ -1,5 +1,7 @@
 package github.jarvis.exception;
 
+import github.jarvis.str.MessageFormatter;
+
 /**
  * Created by yehao on 16/8/30.
  * 更新记录失败异常
@@ -7,7 +9,7 @@ package github.jarvis.exception;
  */
 public class UpdateFailedException extends CustomRuntimeException {
 
-    public static final  String DEFAULT_MSG      = "没有记录被更新!";
+    public static final  String DEFAULT_MSG      = "更新失败!";
     private static final long   serialVersionUID = -5091581218841940663L;
 
     /**
@@ -30,6 +32,18 @@ public class UpdateFailedException extends CustomRuntimeException {
     }
 
     /**
+     * create a UpdateFailedException with formatted message
+     *
+     * @param msg    exception message
+     * @param params formatted object
+     * @author yehao
+     * @date 17/4/19 下午4:51
+     */
+    public UpdateFailedException(String msg, Object... params) {
+        this(MessageFormatter.format(msg, params));
+    }
+
+    /**
      * by specified a code to create a UpdateFailedException
      *
      * @param code exception code
@@ -48,5 +62,18 @@ public class UpdateFailedException extends CustomRuntimeException {
      */
     public UpdateFailedException(String msg, Integer code) {
         super(msg, code);
+    }
+
+    /**
+     * create a UpdateFailedException with formatted message
+     *
+     * @param msg    exception message
+     * @param params formatted object
+     * @param code   exception code
+     * @author yehao
+     * @date 17/4/19 下午4:51
+     */
+    public UpdateFailedException(String msg, Integer code, Object... params) {
+        this(MessageFormatter.format(msg, params), code);
     }
 }
