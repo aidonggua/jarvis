@@ -1,7 +1,5 @@
 package github.jarvis.exception;
 
-import github.jarvis.str.MessageFormatter;
-
 /**
  * Created by yehao on 16/8/30.
  * 更新记录失败异常
@@ -40,7 +38,7 @@ public class UpdateFailedException extends CustomRuntimeException {
      * @date 17/4/19 下午4:51
      */
     public UpdateFailedException(String msg, Object... params) {
-        this(MessageFormatter.format(msg, params));
+        super(msg, params);
     }
 
     /**
@@ -74,6 +72,6 @@ public class UpdateFailedException extends CustomRuntimeException {
      * @date 17/4/19 下午4:51
      */
     public UpdateFailedException(String msg, Integer code, Object... params) {
-        this(MessageFormatter.format(msg, params), code);
+        super(msg, code, params);
     }
 }

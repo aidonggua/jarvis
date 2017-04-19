@@ -11,7 +11,7 @@ public class InsertFailedException extends CustomRuntimeException {
     private static final long   serialVersionUID = 1038166018030531768L;
 
     /**
-     * create a default insert failed exception
+     * create a default InsertFailedException
      *
      * @author yehao
      */
@@ -20,7 +20,7 @@ public class InsertFailedException extends CustomRuntimeException {
     }
 
     /**
-     * by specified a message to create a insert failed exception
+     * by specified a message to create a InsertFailedException
      *
      * @param msg exception message
      * @author yehao
@@ -30,7 +30,19 @@ public class InsertFailedException extends CustomRuntimeException {
     }
 
     /**
-     * by specified a code to create a insert failed exception
+     * create a InsertFailedException with formatted message
+     *
+     * @param msg    exception message
+     * @param params formatted object
+     * @author yehao
+     * @date 17/4/19 下午4:51
+     */
+    public InsertFailedException(String msg, Object... params) {
+        super(msg, params);
+    }
+
+    /**
+     * by specified a code to create a InsertFailedException
      *
      * @param code exception code
      * @author yehao
@@ -40,7 +52,7 @@ public class InsertFailedException extends CustomRuntimeException {
     }
 
     /**
-     * by specified a message and code to create a insert failed exception
+     * by specified a message and code to create a InsertFailedException
      *
      * @param msg  exception message
      * @param code exception code
@@ -48,5 +60,18 @@ public class InsertFailedException extends CustomRuntimeException {
      */
     public InsertFailedException(String msg, Integer code) {
         super(msg, code);
+    }
+
+    /**
+     * create a InsertFailedException with formatted message
+     *
+     * @param msg    exception message
+     * @param params formatted object
+     * @param code   exception code
+     * @author yehao
+     * @date 17/4/19 下午4:51
+     */
+    public InsertFailedException(String msg, Integer code, Object... params) {
+        super(msg, code, params);
     }
 }

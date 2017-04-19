@@ -7,8 +7,8 @@ package github.jarvis.exception;
  */
 public class OperateLimitException extends CustomRuntimeException {
 
-    public static final String DEFAULT_MSG = "操作受限!";
-    private static final long serialVersionUID = 338357868503322015L;
+    public static final  String DEFAULT_MSG      = "操作受限!";
+    private static final long   serialVersionUID = 338357868503322015L;
 
     /**
      * create a default operate limit exception
@@ -30,6 +30,18 @@ public class OperateLimitException extends CustomRuntimeException {
     }
 
     /**
+     * create a OperateLimitException with formatted message
+     *
+     * @param msg    exception message
+     * @param params formatted object
+     * @author yehao
+     * @date 17/4/19 下午4:51
+     */
+    public OperateLimitException(String msg, Object... params) {
+        super(msg, params);
+    }
+
+    /**
      * by specified a code to create a operate limit exception
      *
      * @param code exception code
@@ -48,5 +60,18 @@ public class OperateLimitException extends CustomRuntimeException {
      */
     public OperateLimitException(String msg, Integer code) {
         super(msg, code);
+    }
+
+    /**
+     * create a OperateLimitException with formatted message
+     *
+     * @param msg    exception message
+     * @param params formatted object
+     * @param code   exception code
+     * @author yehao
+     * @date 17/4/19 下午4:51
+     */
+    public OperateLimitException(String msg, Integer code, Object... params) {
+        super(msg, code, params);
     }
 }

@@ -7,8 +7,8 @@ package github.jarvis.exception;
  */
 public class ErrorParamException extends CustomRuntimeException {
 
-    public static final String DEFAULT_MSG = "参数错误!";
-    private static final long serialVersionUID = 9020292621606756510L;
+    public static final  String DEFAULT_MSG      = "参数错误!";
+    private static final long   serialVersionUID = 9020292621606756510L;
 
     /**
      * create a default error param exception
@@ -30,6 +30,18 @@ public class ErrorParamException extends CustomRuntimeException {
     }
 
     /**
+     * create a error param exception with formatted message
+     *
+     * @param msg    exception message
+     * @param params formatted object
+     * @author yehao
+     * @date 17/4/19 下午4:51
+     */
+    public ErrorParamException(String msg, Object... params) {
+        super(msg, params);
+    }
+
+    /**
      * by specified a code to create a error param exception
      *
      * @param code exception code
@@ -48,5 +60,18 @@ public class ErrorParamException extends CustomRuntimeException {
      */
     public ErrorParamException(String msg, Integer code) {
         super(msg, code);
+    }
+
+    /**
+     * create a error param exception with formatted message
+     *
+     * @param msg    exception message
+     * @param params formatted object
+     * @param code   exception code
+     * @author yehao
+     * @date 17/4/19 下午4:51
+     */
+    public ErrorParamException(String msg, Integer code, Object... params) {
+        super(msg, code, params);
     }
 }
