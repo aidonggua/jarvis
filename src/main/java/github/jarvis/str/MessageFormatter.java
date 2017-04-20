@@ -105,6 +105,9 @@ public class MessageFormatter {
         String regexKey = regexTransform(key);
 
         for (int i = 0; i < count; i++) {
+            if (format[i] == null) {
+                format[i] = "NULL";
+            }
             msg = msg.replaceFirst(regexKey, format[i].toString());
         }
         return msg;
