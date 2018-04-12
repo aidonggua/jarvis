@@ -1,9 +1,11 @@
-package github.jarvis.str;
+package github.jarvis.format;
+
+import github.jarvis.utils.StringUtils;
 
 /**
  * Created by yehao on 17/4/19.
  */
-public class MessageFormatter {
+public class Formatter {
 
     public static final String KEY = "{}";
 
@@ -13,7 +15,6 @@ public class MessageFormatter {
      * @param msg the string included the [key]
      * @return the number of [key]
      * @author yehao
-     * @date 17/4/19 上午10:45
      */
     public static int countKey(String msg) {
         if (StringUtils.isEmpty(msg)) {
@@ -29,7 +30,6 @@ public class MessageFormatter {
      * @param key the string to be counted
      * @return the number of [key]
      * @author yehao
-     * @date 17/4/19 上午10:45
      */
     public static int countKey(String msg, String key) {
         if (StringUtils.isEmpty(msg)) {
@@ -48,7 +48,6 @@ public class MessageFormatter {
      * @param index the beginning of msg
      * @param count count number
      * @return @author yehao
-     * @date 17/4/19 下午12:27
      */
     private static int countKey(String msg, String key, int index, int count) {
         index = msg.indexOf(key, index);
@@ -65,7 +64,6 @@ public class MessageFormatter {
      * @param format the string array to be replace the [KEY]
      * @return formatted string
      * @author yehao
-     * @date 17/4/19 下午4:19
      */
     public static String format(String msg, Object... format) {
         return format2(msg, KEY, format);
@@ -74,12 +72,11 @@ public class MessageFormatter {
     /**
      * format msg
      *
-     * @param msg    the string to be formatted
-     * @param key    the string would be formatted
+     * @param msg    -
+     * @param key    -
      * @param format the string array to be replace the [key]
      * @return formatted string
      * @author yehao
-     * @date 17/4/19 下午4:22
      */
     public static String format2(String msg, String key, Object... format) {
         if (StringUtils.isEmpty(msg)) {
@@ -119,7 +116,6 @@ public class MessageFormatter {
      * @param key key word of regex
      * @return formatted key word
      * @author yehao
-     * @date 17/4/19 下午4:23
      */
     private static String regexTransform(String key) {
         return key.replaceAll("\\{", "\\\\{");

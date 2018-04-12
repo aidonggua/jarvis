@@ -1,4 +1,4 @@
-package github.jarvis.bytes;
+package github.jarvis.utils;
 
 /**
  * Created by yehao on 16/12/13.

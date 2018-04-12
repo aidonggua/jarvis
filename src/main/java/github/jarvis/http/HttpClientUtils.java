@@ -1,7 +1,7 @@
 package github.jarvis.http;
 
 import com.alibaba.fastjson.JSONObject;
-import github.jarvis.str.StringUtils;
+import github.jarvis.utils.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.config.RequestConfig;

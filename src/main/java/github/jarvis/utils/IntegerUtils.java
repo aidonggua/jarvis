@@ -1,4 +1,4 @@
-package github.jarvis.integer;
+package github.jarvis.utils;
 
 /**
  * Created by yehao on 17/2/14.
@@ -13,9 +13,11 @@ public class IntegerUtils {
      * @param max   区间的右边
      * @return boolean
      * @author yehao
-     * @date 17/2/14 下午6:21
+     * @since 17/2/14
      */
-    public static boolean in(Integer value, int min, int max) {
+    public static boolean in(Integer value,
+                             int min,
+                             int max) {
         if (value == null) {
             return false;
         }

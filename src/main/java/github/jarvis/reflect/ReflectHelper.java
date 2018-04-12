@@ -1,6 +1,5 @@
 package github.jarvis.reflect;
 
-
 import java.lang.reflect.Field;
 
 /**
@@ -15,7 +14,8 @@ public class ReflectHelper {
      * @param fieldName
      * @return
      */
-    public static Field getFieldByFieldName(Object obj, String fieldName) {
+    public static Field getFieldByFieldName(Object obj,
+                                            String fieldName) {
         for (Class<?> superClass = obj.getClass(); superClass != Object.class; superClass = superClass.getSuperclass()) {
             try {
                 return superClass.getDeclaredField(fieldName);
@@ -36,11 +36,11 @@ public class ReflectHelper {
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      */
-    public static Object getValueByFieldName(Object obj, String fieldName) throws SecurityException,
-            NoSuchFieldException,
+    public static Object getValueByFieldName(Object obj,
+                                             String fieldName) throws SecurityException,
             IllegalArgumentException,
             IllegalAccessException {
-        Field field = getFieldByFieldName(obj, fieldName);
+        Field  field = getFieldByFieldName(obj, fieldName);
         Object value = null;
         if (field != null) {
             if (field.isAccessible()) {
@@ -65,7 +65,9 @@ public class ReflectHelper {
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      */
-    public static void setValueByFieldName(Object obj, String fieldName, Object value) throws SecurityException,
+    public static void setValueByFieldName(Object obj,
+                                           String fieldName,
+                                           Object value) throws SecurityException,
             NoSuchFieldException,
             IllegalArgumentException,
             IllegalAccessException {

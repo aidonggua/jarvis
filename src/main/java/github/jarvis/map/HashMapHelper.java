@@ -7,9 +7,7 @@ import java.util.HashMap;
  * Created by yehao on 16/9/23.
  * 便利操作map
  */
-public class MapHelper extends HashMap {
-
-    private static final long serialVersionUID = 8369009754902845172L;
+public class HashMapHelper extends HashMap {
 
     /**
      * 获取对象返回值

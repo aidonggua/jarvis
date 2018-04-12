@@ -1,4 +1,4 @@
-package github.jarvis.date;
+package github.jarvis.utils;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -11,15 +11,18 @@ public class DateUtils {
 
     //1秒 = 1000毫秒
     public static final long SECOND = 1000;
+
     //1分 = 60秒
     public static final long MINUTE = 60 * SECOND;
+
     //1小时 = 60分
-    public static final long HOUR   = 60 * MINUTE;
+    public static final long HOUR = 60 * MINUTE;
+
     //1天 = 24小时
-    public static final long DAY    = 24 * HOUR;
+    public static final long DAY = 24 * HOUR;
 
     /**
-     * 加上 n 天后的时间
+     * 给日期{date}加上天数{day}
      * <pre>
      *     Date date = new Date();
      *
@@ -27,12 +30,14 @@ public class DateUtils {
      *     operate(date,1)      = Wed Aug 31 10:21:21 CST 2016
      * </pre>
      *
-     * @param date initial date
-     * @param day  the number of days that be used to increase to
-     * @return date by given date increase given days
+     * @param date -
+     * @param day  -
+     * @return Date
      * @author yehao
+     * @since 2018/4/12
      */
-    public static Date add(Date date, long day) {
+    public static Date add(Date date,
+                           long day) {
         if (date == null) {
             return null;
         }
@@ -40,86 +45,78 @@ public class DateUtils {
     }
 
     /**
-     * 获取日期的星期字符串
+     * 获取日期{date}的英文星期字符串
      *
-     * @param date 指定日期
-     * @return week string of given date,if given date is null return null
+     * @param date -
+     * @return String
      * @author yehao
+     * @since 2018/4/12
      */
     public static String getDateEnWeekString(Date date) {
         return getEnWeekString(getDateWeek(date));
     }
 
     /**
-     * 获取指定日期的星期数
+     * 获取日期{date}的星期数
      *
-     * @param date 指定日期
-     * @return week of given date,,if given date is null return -1
+     * @param date -
+     * @return int
      * @author yehao
+     * @since 2018/4/12
      */
     public static int getDateWeek(Date date) {
-
-        /**check*/
         if (null == date) {
             return -1;
         }
 
         Calendar c = Calendar.getInstance();
         c.setTime(date);
-        /**1=星期天,这里将星期天设置为7,星期1~星期6为1-6*/
-        int dateWeek = 0;
+
+        // calendar中 星期天 == 1
+        // 这里将星期天设置为7
+        // 星期1~星期6为2-7,这里减1
         if (c.get(Calendar.DAY_OF_WEEK) == 1) {
-            dateWeek = 7;
+            return 7;
         } else {
-            dateWeek = c.get(Calendar.DAY_OF_WEEK) - 1;
+            return c.get(Calendar.DAY_OF_WEEK) - 1;
         }
-        return dateWeek;
     }
 
     /**
-     * 获取英文星期字符串
+     * 获取星期{week}的英文缩写
      *
-     * @param week 星期一 ~ 星期天 = 1 ~ 7
-     * @return 英文星期字符串, 如果week不为1 ~ 7,返回null
+     * @param week [1-7]
+     * @return String
      * @author yehao
+     * @since 2018/4/12
      */
     public static String getEnWeekString(int week) {
-
-        /**将星期转换成星期字符串*/
-        String weekStr = null;
         switch (week) {
             case 1:
-                weekStr = "mon";
-                break;
+                return "mon";
             case 2:
-                weekStr = "tue";
-                break;
+                return "tue";
             case 3:
-                weekStr = "wed";
-                break;
+                return "wed";
             case 4:
-                weekStr = "thu";
-                break;
+                return "thu";
             case 5:
-                weekStr = "fri";
-                break;
+                return "fri";
             case 6:
-                weekStr = "sat";
-                break;
+                return "sat";
             case 7:
-                weekStr = "sun";
-                break;
+                return "sun";
         }
-        return weekStr;
+        return null;
     }
 
     /**
-     * the number indicates the week
+     * 获取星期{week}的数字形式
      *
-     * @param week the day of the week(abbreviation)
-     * @return the day of the week(number)
+     * @param week [mon-sun]
+     * @return int
      * @author yehao
-     * @date 17/2/20 上午11:48
+     * @since 2018/4/12
      */
     public static int getWeekNum(String week) {
         if ("mon".equals(week)) {
@@ -142,12 +139,12 @@ public class DateUtils {
     }
 
     /**
-     * the number(char) indicates the week
+     * 获取星期{week}的字符形式
      *
-     * @param week the day of the week(abbreviation)
-     * @return the day of the week(char)
+     * @param week [mon-sun]
+     * @return char
      * @author yehao
-     * @date 17/2/20 上午11:48
+     * @since 2018/4/12
      */
     public static char getWeekChar(String week) {
         if ("mon".equals(week)) {
@@ -170,39 +167,30 @@ public class DateUtils {
     }
 
     /**
-     * 获取中文星期字符串
+     * 获取星期{week}的中文字符串
      *
-     * @param week 星期一 ~ 星期天 = 1 ~ 7
-     * @return 中文星期字符串, 如果week不为1 ~ 7,返回null
+     * @param week [1-7]
+     * @return String
      * @author yehao
+     * @since 2018/4/12
      */
     public static String getZhWeekString(int week) {
-
-        /**将星期转换成星期字符串*/
-        String weekStr = null;
         switch (week) {
             case 1:
-                weekStr = "星期一";
-                break;
+                return "星期一";
             case 2:
-                weekStr = "星期二";
-                break;
+                return "星期二";
             case 3:
-                weekStr = "星期三";
-                break;
+                return "星期三";
             case 4:
-                weekStr = "星期四";
-                break;
+                return "星期四";
             case 5:
-                weekStr = "星期五";
-                break;
+                return "星期五";
             case 6:
-                weekStr = "星期六";
-                break;
+                return "星期六";
             case 7:
-                weekStr = "星期日";
-                break;
+                return "星期日";
         }
-        return weekStr;
+        return null;
     }
 }
