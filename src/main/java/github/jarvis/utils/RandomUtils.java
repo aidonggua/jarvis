@@ -25,8 +25,4 @@ public class RandomUtils {
         Double randNumber = random.nextDouble();
         return randNumber.toString().split("\\.")[1].substring(0, bit);
     }
-
-    //    public static void main(String[] args) {
-    //        System.out.println(rand(5));
-    //    }
 }

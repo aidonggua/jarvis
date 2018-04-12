@@ -35,12 +35,5 @@ public class SequenceUtils {
         int seq = incrementAndGet();
         return prefix + day + String.format("%05d", seq);
     }
-
-    //    public static void main(String[] args) {
-    //        SequenceUtils sequenceUtils = new SequenceUtils();
-    //        for (int i = 0; i < 100; i++) {
-    //            System.out.println(sequenceUtils.getDailyOrderNo("abc"));
-    //        }
-    //    }
 }
 
