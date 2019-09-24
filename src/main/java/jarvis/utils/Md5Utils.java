@@ -1,4 +1,4 @@
-package github.jarvis.encrypt;
+package jarvis.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

@@ -1,11 +1,11 @@
-package github.jarvis.reflect;
+package jarvis.utils;
 
 import java.lang.reflect.Field;
 
 /**
  * Created by yehao on 2016/1/14.
  */
-public class ReflectHelper {
+public class ReflectUtils {
 
     /**
      * 获取obj对象fieldName的Field

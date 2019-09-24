@@ -1,4 +1,4 @@
-package github.jarvis.map;
+package jarvis.map;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

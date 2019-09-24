@@ -1,21 +1,26 @@
-package github.jarvis.utils;
+package jarvis.utils;
 
-public class CheckUtils {
+/**
+ * 校验工具类
+ *
+ * @author yehao
+ * @date 2019-09-24
+ */
+public class ValidUtils {
 
     /**
      * 检查一批参数{params}其中是否存在空
      *
-     * @param params -
      * @return boolean
      * @author yehao
      * @since 2018/4/12
      */
-    public static boolean containsEmpty(Object... params) {
-        for (Object o : params) {
+    public static <T> boolean containsEmpty(T... params) {
+        for (T o : params) {
             if (o == null) {
                 return true;
             }
-            if (o instanceof String && StringUtils.isEmpty(String.valueOf(o))) {
+            if (o instanceof String && ((String) o).isEmpty()) {
                 return true;
             }
         }

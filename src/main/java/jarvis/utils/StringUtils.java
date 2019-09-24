@@ -1,73 +1,10 @@
-package github.jarvis.utils;
+package jarvis.utils;
 
 /**
  * Created by yehao on 16/8/29.
  * 字符串工具类
  */
 public class StringUtils {
-
-    /**
-     * 判断字符串是否为空
-     * <pre>
-     *     StringUtils.isEmpty(null)      = true
-     *     StringUtils.isEmpty("")        = true
-     *     StringUtils.isEmpty(" ")       = false
-     *     StringUtils.isEmpty(" ")       = false
-     *     StringUtils.isEmpty("bob")     = false
-     *     StringUtils.isEmpty("  bob  ") = false
-     * </pre>
-     *
-     * @return boolean
-     * @author yehao
-     * @since 2018/4/12
-     */
-    public static boolean isEmpty(String str) {
-        return null == str || str.length() == 0;
-    }
-
-    /**
-     * 判断字符串是否为空，并且不为 "null" 或 "nil"
-     * <pre>
-     *     StringUtils.isEmpty("null")      = true
-     *     StringUtils.isEmpty("nil")       = true
-     *     StringUtils.isEmpty("")          = true
-     *     StringUtils.isEmpty(null)        = true
-     * </pre>
-     *
-     * @return boolean
-     * @author yehao
-     * @since 2018/4/12
-     */
-    public static boolean isEmpty2(String str) {
-        return isEmpty(str) || "null".equalsIgnoreCase(str) || "nil".equalsIgnoreCase(str);
-    }
-
-    /**
-     * 判断字符串是否为空，或者只有空格
-     * <pre>
-     *     StringUtils.isBlank(null)      = true
-     *     StringUtils.isBlank("")        = true
-     *     StringUtils.isBlank(" ")       = true
-     *     StringUtils.isBlank("bob")     = false
-     *     StringUtils.isBlank("  bob  ") = false
-     * </pre>
-     *
-     * @return String
-     * @author yehao
-     * @since 2018/4/12
-     */
-    public static boolean isBlank(String str) {
-        int strLen;
-        if (null == str || (strLen = str.length()) == 0) {
-            return true;
-        }
-        for (int i = 0; i < strLen; i++) {
-            if ((!Character.isWhitespace(str.charAt(i)))) {
-                return false;
-            }
-        }
-        return true;
-    }
 
     /**
      * 大小写转换

@@ -1,4 +1,4 @@
-package github.jarvis.utils;
+package jarvis.utils;
 
 import java.util.Random;
 

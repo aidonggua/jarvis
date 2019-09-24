@@ -1,4 +1,4 @@
-package github.jarvis.utils;
+package jarvis.utils;
 
 /**
  * Created by yehao on 17/2/14.

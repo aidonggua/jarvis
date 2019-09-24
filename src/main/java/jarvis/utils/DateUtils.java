@@ -1,4 +1,4 @@
-package github.jarvis.utils;
+package jarvis.utils;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -36,8 +36,7 @@ public class DateUtils {
      * @author yehao
      * @since 2018/4/12
      */
-    public static Date add(Date date,
-                           long day) {
+    public static Date add(Date date, long day) {
         if (date == null) {
             return null;
         }
