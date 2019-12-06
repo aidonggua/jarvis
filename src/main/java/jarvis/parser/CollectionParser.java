@@ -1,4 +1,4 @@
-package jarvis.utils;
+package jarvis.parser;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,7 +22,7 @@ public class CollectionParser {
      * @author yehao
      * @date 2019-09-24
      */
-    public static <V, K> HashMap<K, V> collectionToMap(Collection<V> collection, Function<V, K> function) {
+    public static <V, K> HashMap<K, V> toMap(Collection<V> collection, Function<V, K> function) {
         if (collection == null || collection.size() == 0) {
             return null;
         }

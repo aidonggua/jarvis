@@ -1,4 +1,4 @@
-package jarvis.utils;
+package jarvis.parser;
 
 import java.lang.reflect.InvocationTargetException;
 
