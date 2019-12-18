@@ -12,11 +12,11 @@ import java.util.List;
  */
 public class Lexer {
 
-    private static List<String> keywords = Arrays.asList("package", "import", "public", "protected", "private", "abstract", "static", "final", "void", "class", "interface", "enum", "if", "while", "for", "do", "return", "continue", "break");
+    private List<String> keywords = Arrays.asList("package", "import", "public", "protected", "private", "abstract", "static", "final", "void", "class", "interface", "enum", "if", "while", "for", "do", "return", "continue", "break");
 
-    private static List<Token> tokens = new ArrayList<>();
+    private List<Token> tokens = new ArrayList<>();
 
-    public static List<Token> analyse(String content) {
+    public List<Token> analyse(String content) {
         int             position  = -1;
         int             line      = 1;
         List<Character> tempChars = new ArrayList<>();
@@ -167,32 +167,9 @@ public class Lexer {
         }
     }
 
-    public static String charList2String(List<Character> characters) {
+    private String charList2String(List<Character> characters) {
         StringBuilder stringBuilder = new StringBuilder();
         characters.forEach(stringBuilder::append);
         return stringBuilder.toString();
-    }
-
-    public static List<String> getKeywords() {
-        return keywords;
-    }
-
-    public static void setKeywords(List<String> keywords) {
-        Lexer.keywords = keywords;
-    }
-
-    public static List<Token> getTokens() {
-        return tokens;
-    }
-
-    public static void setTokens(List<Token> tokens) {
-        Lexer.tokens = tokens;
-    }
-
-    public static String trimLeft(String str, String trimStr) {
-        if (str.startsWith(trimStr)) {
-            return str.substring(trimStr.length());
-        }
-        return str;
     }
 }

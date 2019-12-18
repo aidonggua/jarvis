@@ -27,8 +27,7 @@ public class ParserTest {
         }
 
         //# 2 分析文件
-        Lexer.analyse(stringBuilder.toString());
-        Parser    parser    = new Parser(Lexer.getTokens());
+        Parser    parser    = new Parser(new Lexer().analyse(stringBuilder.toString()));
         ClassMeta classMeta = parser.analyse();
 
         //# 3 打印指定格式的注释
