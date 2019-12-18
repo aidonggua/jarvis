@@ -22,6 +22,12 @@ public class Parser {
         classMeta = new ClassMeta();
     }
 
+    /**
+     * 分析token流
+     *
+     * @author yehao
+     * @date 2019-12-18
+     */
     public ClassMeta analyse() {
         while (true) {
             position++;
@@ -91,6 +97,12 @@ public class Parser {
         return meta;
     }
 
+    /**
+     * 解析class语句
+     *
+     * @author yehao
+     * @date 2019-12-18
+     */
     private void classStmt() {
         if (seekCurrent("public")) {
             classMeta.setVisibility(getCurrentToken().getLex());
@@ -176,6 +188,10 @@ public class Parser {
         }
     }
 
+    /**
+     * @author yehao
+     * @date 2019-12-18
+     */
     private void seekFunction(ClassElementMeta classElementMeta) {
         List<Token> filterTokens = filterMethodToken("LineComment");
         classElementMeta.setComments(filterTokens.stream()
@@ -185,11 +201,12 @@ public class Parser {
         classElementMeta.setLineEnd(token.getLine());
     }
 
-    private boolean seekCurrent(String lex) {
-        return getCurrentToken().getLex()
-                                .equals(lex);
-    }
-
+    /**
+     * 判断当前token的lex是不是指定lex
+     *
+     * @author yehao
+     * @date 2019-12-18
+     */
     private boolean seekCurrent(String... lexs) {
         Token token = tokens.get(position);
         for (String lex : lexs) {
@@ -199,16 +216,6 @@ public class Parser {
             }
         }
         return false;
-    }
-
-    /**
-     * 判断下一个token是不是指定的某个lex
-     *
-     * @author yehao
-     * @date 2019-12-18
-     */
-    private boolean seekNext(String lex) {
-        return seekNext(lex, true);
     }
 
     /**
@@ -241,18 +248,25 @@ public class Parser {
      * @author yehao
      * @date 2019-12-18
      */
-    private boolean seekNext(String... lexs) {
+    private boolean seekNext(String... lexArray) {
         position++;
         Token token = tokens.get(position);
-        for (String lex : lexs) {
+        for (String lex : lexArray) {
             if (token.getLex()
                      .equals(lex)) {
                 return true;
             }
         }
+        position--;
         return false;
     }
 
+    /**
+     * 过滤出指定的词素
+     *
+     * @author yehao
+     * @date 2019-12-18
+     */
     private List<Token> filterMethodToken(String lex) {
         List<Token> filterTokens    = new ArrayList<>();
         int         leftBracesCount = 0;
@@ -296,21 +310,11 @@ public class Parser {
     }
 
     /**
-     * 校验当前token
+     * 丢弃任何token，直到碰到指定词素
      *
      * @author yehao
      * @date 2019-12-18
      */
-    @SuppressWarnings("always")
-    private Token validCurrent(String lex) {
-        Token currentToken = getCurrentToken();
-        if (!currentToken.getLex()
-                         .equals(lex)) {
-            throw new RuntimeException(String.format("预期[%s]失败", lex));
-        }
-        return currentToken;
-    }
-
     private void popUntil(String lex) {
         while (true) {
             position++;
@@ -321,6 +325,12 @@ public class Parser {
         }
     }
 
+    /**
+     * 丢弃指定pair里面的任何内容
+     *
+     * @author yehao
+     * @date 2019-12-18
+     */
     private void popPair(String leftLex, String rightLex) {
         Token token           = tokens.get(position);
         int   leftParentheses = 0;
