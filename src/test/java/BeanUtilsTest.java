@@ -1,4 +1,4 @@
-import jarvis.parser.CollectionParser;
+import jarvis.transfer.CollectionTransfer;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -29,6 +29,6 @@ public class BeanUtilsTest {
         as.add(new TestObject("b"));
         as.add(new TestObject("c"));
 
-        System.out.println(CollectionParser.toMap(as, TestObject::getField1));
+        System.out.println(CollectionTransfer.toMap(as, TestObject::getField1));
     }
 }

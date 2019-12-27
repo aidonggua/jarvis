@@ -1,4 +1,4 @@
-package jarvis.parser;
+package jarvis.transfer;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,7 +12,7 @@ import java.util.function.Function;
  * @author yehao
  * @date 2019-09-24
  */
-public class CollectionParser {
+public class CollectionTransfer {
 
     /**
      * 将Collection转化为Map

@@ -1,4 +1,4 @@
-package jarvis.parser;
+package jarvis.transfer;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
  * @author yehao
  * @date 2019-12-04
  */
-public class BeanParser {
+public class BeanTransfer {
 
     /**
      * 将T1类型的实例t1 转换为 T2类型的t2实例
@@ -21,7 +21,7 @@ public class BeanParser {
      * @author yehao
      * @date 2019-12-04
      */
-    public static <T1, T2> T2 parse(T1 t1, Class<T2> t2Class) {
+    public static <T1, T2> T2 transfer(T1 t1, Class<T2> t2Class) {
         try {
             T2 t2 = t2Class.newInstance();
             org.apache.commons.beanutils.BeanUtils.copyProperties(t2, t1);
@@ -40,10 +40,10 @@ public class BeanParser {
      * @author yehao
      * @date 2019-12-25
      */
-    public static <T1, T2> List<T2> parseList(List<T1> t1, Class<T2> t2Class) {
+    public static <T1, T2> List<T2> transferList(List<T1> t1, Class<T2> t2Class) {
         List<T2> list = new ArrayList<>();
         for (T1 temp : t1) {
-            list.add(parse(temp, t2Class));
+            list.add(transfer(temp, t2Class));
         }
 
         return list;
