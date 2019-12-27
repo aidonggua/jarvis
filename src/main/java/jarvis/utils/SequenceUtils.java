@@ -13,7 +13,6 @@ public class SequenceUtils {
     private int incrementAndGet() {
         SimpleDateFormat sdf        = new SimpleDateFormat("yyyyMMdd");
         String           dateString = sdf.format(new Date());
-
         if (atomicInteger == null || !dateString.equals(day)) {
             day = dateString;
             atomicInteger = new AtomicInteger();

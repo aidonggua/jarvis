@@ -7,6 +7,22 @@ package jarvis.utils;
 public class StringUtils {
 
     /**
+     * 统计字符串里，某个字符的数量
+     *
+     * @author yehao
+     * @date 2019/12/27
+     */
+    public static int countChar(String str, char c) {
+        int count = 0;
+        for (char tempC : str.toCharArray()) {
+            if (tempC == c) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /**
      * 大小写转换
      * <pre>
      *     swapCase("aBc")      = "Abc"
@@ -24,7 +40,7 @@ public class StringUtils {
             return str;
         }
 
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < strLen; i++) {
             char ch = str.charAt(i);
             //大写换小写，小写换大写
