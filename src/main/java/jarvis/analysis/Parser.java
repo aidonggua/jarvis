@@ -149,6 +149,8 @@ public class Parser {
                     ClassElementMeta classElementMeta = new ClassElementMeta();
                     if (seekCurrent("public", "private", "protected")) {
                         classElementMeta.setVisibility(getCurrentToken().getLex());
+                    } else {
+                        position--;
                     }
                     classElementMeta.setAbstract(seekNext("abstract"));
                     classElementMeta.setStatic(seekNext("static"));
