@@ -1,19 +1,20 @@
-import jarvis.tree.TreeManager;
+
+import jarvis.tree.TreeWalker;
 import org.junit.Test;
 
 public class TreeManagerTest {
 
     @Test
     public void testTreeManager() {
-        TreeManager treeManager = new TreeManager();
-        treeManager.newTree("1");
-        treeManager.createNode("1.1");
-        treeManager.createNode("1.2");
-        treeManager.enter();
-        treeManager.createNode("1.2.1");
-        treeManager.createNode("1.2.2");
-        treeManager.out();
-        treeManager.createNode("1.3");
-        System.out.println(treeManager);
+        TreeWalker treeWalker = new TreeWalker();
+        treeWalker.newTree("1");
+        treeWalker.createNode("1.1");
+        treeWalker.createNode("1.2");
+        treeWalker.enter();
+        treeWalker.createNode("1.2.1");
+        treeWalker.createNode("1.2.2");
+        treeWalker.out();
+        treeWalker.createNode("1.3");
+        System.out.println(treeWalker);
     }
 }

@@ -1,6 +1,7 @@
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.ast.visitor.ModifierVisitor;
+import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import org.junit.Test;
 
 import java.io.File;
@@ -15,7 +16,23 @@ public class ParserTest {
         //        System.out.println(compilationUnit);
         //        System.out.println(compilationUnit.getComments());
         //        System.out.println(compilationUnit.getMetaModel().getAllPropertyMetaModels());
-        ModifierVisitor visitor = new ModifierVisitor();
-        //        visitor.
+
+        MyVisitor myVisitor = new MyVisitor();
+        compilationUnit.accept(myVisitor, null);
+    }
+}
+
+class MyVisitor extends VoidVisitorAdapter<Void> {
+
+    @Override
+    public void visit(MethodDeclaration n, Void arg) {
+        super.visit(n, arg);
+        if (n.getBegin()
+             .isPresent()) {
+            System.out.println(n.getBegin()
+                                .get());
+            System.out.println(n.getEnd().get());
+            System.out.println(n.getAllContainedComments());
+        }
     }
 }

@@ -29,12 +29,11 @@ public class AnalysisTest {
             stringBuilder.append(new String(buf, 0, length));
         }
 
-        //# 1.1 分析文件
+        //# 2 分析文件
         Parser    parser    = new Parser(new Lexer().analyse(stringBuilder.toString()));
         ClassMeta classMeta = parser.analyse();
 
-        //# 1.1.1 打印指定格式的注释
-        //# 1.1.1.1 打印指定格式的注释
+        //# 3 提取指定格式的注释
         for (ClassElementMeta classElementMeta : classMeta.getMethods()) {
             if (26 > classElementMeta.getLineStart() && 26 < classElementMeta.getLineEnd()) {
                 stringBuilder = new StringBuilder();
@@ -71,12 +70,13 @@ public class AnalysisTest {
                 stringBuilder.append("</pre>");
             }
         }
-        //# 2 输出到控制台
-        //# 2.1 输出到控制台
-        //# 2.2 输出到控制台
-        //# 2.2.1 输出到控制台
-        //# 2.2.2 输出到控制台
-        //# 2.3 输出到控制台
+
+        //# 3.1 输出到控制台
+        //# 3.2 输出到控制台
+        //# 3.2.1 输出到控制台
+        //# 3.2.2 输出到控制台
+        //# 3.3 输出到控制台
+        //# 4 输出到控制台
         System.out.println(stringBuilder.toString());
     }
 }
