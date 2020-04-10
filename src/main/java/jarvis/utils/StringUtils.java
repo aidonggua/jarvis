@@ -7,6 +7,37 @@ package jarvis.utils;
 public class StringUtils {
 
     /**
+     * 将字符串转换成snake case
+     *
+     * @param origin 原始字符串
+     * @author yehao
+     * @date 2020/4/10
+     */
+    public static String toSnakeCase(String origin) {
+        boolean first       = true;
+        char[]  chars       = new char[origin.length() * 2];
+        char[]  originChars = origin.toCharArray();
+        int     count       = 0;
+        for (int i = 0; i < originChars.length; i++) {
+            if (originChars[i] >= 'A' && originChars[i] <= 'Z') {
+                if (!first) {
+                    chars[i + count] = '_';
+                    count++;
+                }
+                chars[i + count] = (char) (originChars[i] + 32);
+            } else {
+                chars[i + count] = originChars[i];
+            }
+            first = false;
+        }
+        return new String(chars, 0, originChars.length + count);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(toSnakeCase("originString"));
+    }
+
+    /**
      * 统计字符串里，某个字符的数量
      *
      * @author yehao

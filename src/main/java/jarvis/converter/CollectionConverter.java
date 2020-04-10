@@ -1,4 +1,4 @@
-package jarvis.transfer;
+package jarvis.converter;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,7 +12,7 @@ import java.util.function.Function;
  * @author yehao
  * @date 2019-09-24
  */
-public class CollectionTransfer {
+public class CollectionConverter {
 
     /**
      * 将Collection转化为Map
